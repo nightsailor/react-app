@@ -2,7 +2,7 @@ import "./topbar.css";
 import { Link } from "react-router-dom";
 
 export default function Topbar() {
-  
+
   const handleLogout = () => {
     localStorage.removeItem("user");
     window.location.reload();
@@ -24,7 +24,7 @@ export default function Topbar() {
           <Link to="/tourista" className="topbarLink">Outdoors</Link>
         </div>
         <div className="topbarLinks">
-            <Link to="/" className="topbarLink topbarItem" onClick={handleLogout}>Sign Out</Link>
+          <Link to="/" className="topbarLink topbarItem" onClick={handleLogout}>Sign Out</Link>
         </div>
       </div>
     </div>

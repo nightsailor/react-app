@@ -9,18 +9,18 @@ export default function Login() {
   const password = useRef();
   let isFetching = false;
 
-  const handleClick = async(e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
     const userCredential =
-        { email: email.current.value, password: password.current.value };
+      { email: email.current.value, password: password.current.value };
 
     isFetching = true;
     try {
-        // const res = await axios.post("/auth/login", userCredential);
-        localStorage.setItem("user", userCredential.email);
-        window.location.href = "/";
+      // const res = await axios.post("/auth/login", userCredential);
+      localStorage.setItem("user", userCredential.email);
+      window.location.href = process.env.PUBLIC_URL || "/";
     } catch (err) {
-        window.alert(err);
+      window.alert(err);
     }
     isFetching = false;
   };
@@ -55,18 +55,18 @@ export default function Login() {
               {isFetching ? (
                 <CircularProgress color="white" size="20px" />
               ) : (
-                "Log In"
-              )}
+                  "Log In"
+                )}
             </button>
             <span className="loginForgot">Forgot Password?</span>
             <Link to="/register" className="loginLink">
-            <button className="loginRegisterButton">
-              {isFetching ? (
-                <CircularProgress color="white" size="20px" />
-              ) : (
-                "Create a New Account"
-              )}
-            </button>
+              <button className="loginRegisterButton">
+                {isFetching ? (
+                  <CircularProgress color="white" size="20px" />
+                ) : (
+                    "Create a New Account"
+                  )}
+              </button>
             </Link>
           </form>
         </div>

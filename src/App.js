@@ -11,18 +11,18 @@ import {
 function App() {
   const user = localStorage.getItem("user")
   return (
-    <Router basename={window.location.pathname || ''}>
+    <Router basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route exact path="/">{user ? <Home /> : <Register />}</Route>
 
         <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
-        
+
         <Route path="/register">{user ? <Redirect to="/" /> : <Register />}</Route>
 
         {user && (
           <>
             <Route path="/chat" exact><Home /></Route>
-            
+
             <Route path="/travel" exact><Home /></Route>
 
             <Route path="/tourista" exact><Home /></Route>
